@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Database</h1>
+
+{% for row in rows %}
+    <p>{{ row['firstname'], row['lastname'], row['username'], row['email'], row['password'] }}</p>
+{% endfor %}
+{% endblock%}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Signup Page{% endblock %}
+
+{% block content %}
+
+<div class="container" >
+    <h1 style="margin: 0 auto; text-align: center;">Signup</h1>
+
+    {% if not success %}
+        {% for message in messages %}
+            <p class="error">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form action="{{ url_for('signup') }}" method="POST" style="margin: 0 auto; width: 300px;">
+        <label for="firstname">First Name:</label><br>
+        <input type="text" id="firstname" name="firstname" required style="width: 100%; padding: 5px; margin-bottom: 10px;"><br>
+
+        <label for="lastname">Last Name:</label><br>
+        <input type="text" id="lastname" name="lastname" required style="width: 100%; padding: 5px; margin-bottom: 10px;"><br>
+
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required style="width: 100%; padding: 5px; margin-bottom: 10px;"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 5px; margin-bottom: 10px;"><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required style="width: 100%; padding: 5px; margin-bottom: 10px;"><br>
+
+        <label for="confirm_password">Confirm Password:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password" required style="width: 100%; padding: 5px; margin-bottom: 10px;"><br>
+
+        <input type="submit" value="Submit" style="width: 100%; padding: 5px; margin-top: 10px; background-color: #4CAF50; color: white; border: none;">
+    </form>
+
+    <p  style="text-align: center; margin-top: 20px;">Already a Member? <a href="{{ url_for('login') }}" style="color: #4CAF50;">Login</a></p>
+</div>
+{% endblock %}
+

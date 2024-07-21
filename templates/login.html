@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 20px;">
+    <h1>Login to Your Account</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form action="{{ url_for('login') }}" method="POST" style="margin: 0 auto; width: 300px;">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required style="width: 100%; padding: 5px; margin-bottom: 10px;"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required style="width: 100%; padding: 5px; margin-bottom: 10px;"><br>
+        <input type="submit" value="Submit" style="width: 100%; padding: 5px; margin-top: 10px; background-color: #4CAF50; color: white; border: none;">
+    </form>
+    <p style="text-align: center; margin-top: 20px;">Not a Member Yet? <a href="{{ url_for('signup') }}" style="color: #4CAF50;">Create an Account</a></p>
+</div>
+{% endblock %}
